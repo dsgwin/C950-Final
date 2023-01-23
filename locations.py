@@ -34,6 +34,7 @@ class Graph:
 
 # A method to take in the CSV data file and return it in a list of lists format
 # which will simplify iterating to create the graph
+# Space-time complexity O(N)
 def get_distance_data(filename):
     distanceCSV = []
     with open(filename) as csv_file:
@@ -44,6 +45,7 @@ def get_distance_data(filename):
 
 # This method takes in the CSV file as a positional argument and calls the get_distance_data function
 # The data is then used to create the graph used to lookup edge weights
+# Space-time complexity of O(N^2)
 def create_graph(filename):
     distance_table = get_distance_data(filename)    # Call to get_distance_data returns list of lists of CSV data
     distance_graph = Graph()                # Creates instance of the graph object
@@ -52,7 +54,7 @@ def create_graph(filename):
 
     for row in distance_table:                      # for each row in the distance_table
         for i in range(3,len(distance_table)+3):    # iterate through each row's column through the end of the row
-            if row[i] != '':                        # if the distance cell in the row is not empty
+            if row[i] != '':                        # if the distance cell in the row is not empty,
                                                     # the undirected edge of the two verticies is added
                 distance_graph.add_undirected_edge(row[1],distance_table[i-3][1], float(row[i]))
 
