@@ -1,5 +1,6 @@
 # HashTable Class
 # Adapted from code used in 'How to Dijkstra' Webinar
+
 class HashTable:
     # Initializes the hash map with size as input,
     # if no input provided the default will be 40 based on initial pacakge count
@@ -12,25 +13,24 @@ class HashTable:
     # Insert function will add the item into the hash table with the key and value
     # If key doesn't exist it will be added, if the key exists the value will be updated
     # Space-time complexity is O(1)
-    def insert(self, key, item):  # does both insert and update
-        # get the bucket list where this item will go.
+    def insert(self, key, item):  # Provides insert and update functionality
+        # Get hash value to determine bucket
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
 
-        # update key if it is already in the bucket
+        # Update key if it already exists in bucket
         for kv in bucket_list:
-            # print (key_value)
             if kv[0] == key:
                 kv[1] = item
                 return True
 
-        # if not, insert the item to the end of the bucket list.
+        # If key is not present, it is added to the end of the bucket list.
         key_value = [key, item]
         bucket_list.append(key_value)
         return True
 
-    #The look_up function searches the hash table for the provided key and returns the value
-    #space-time complexity is O(1)
+    # The look_up function searches the hash table for the provided key and returns the value
+    # Space-time complexity is O(1)
     def look_up(self, key):
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.table)

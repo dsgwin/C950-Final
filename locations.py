@@ -27,7 +27,7 @@ class Graph:
         self.add_directed_edge(vertex_a, vertex_b, weight)
         self.add_directed_edge(vertex_b, vertex_a, weight)
 
-    # this function checks the edge_weight between two verticies and returns the value
+    # this function checks the edge_weight between two vertices and returns the value
     def compare_distance(self, start_vertex, end_vertex):
         weight = self.edge_weights[start_vertex, end_vertex]
         return weight

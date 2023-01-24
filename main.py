@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from locations import *
 from packagemgmt import *
 # Duncan Gwin
@@ -7,11 +8,11 @@ from packagemgmt import *
 
 # Import the CSV package data
 # The resulting package_table is a hash table
-package_table = create_package_table('data\package_data.csv')
+package_table = create_package_table('data/package_data.csv')
 
 # Import CSV distance data
 # The resulting object is a graph
-distance_graph = create_graph('data\distance_map.csv')
+distance_graph = create_graph('data/distance_map.csv')
 
 # Initialize variable for total distance traveled along route
 total_route_distance = 0
@@ -69,7 +70,7 @@ def user_interface():
 
         if user_selection == 1:
             id_to_check = int(input('Please enter package ID: '))
-            time_to_check = input('Enter time in HH:MM format: ')
+            time_to_check = str(input('Enter time in HH:MM format: '))
             package = package_table.look_up(id_to_check) # Take in user input id and look-up package
             package.update_delivery_status(time_to_check) # Modify package status based on simulated time
             print(package.package_id, package.address, package.city, package.state,
