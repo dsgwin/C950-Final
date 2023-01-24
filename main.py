@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from locations import *
 from packagemgmt import *
 # Duncan Gwin
