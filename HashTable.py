@@ -35,11 +35,11 @@ class HashTable:
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
-        # print(bucket_list)
+
 
         # search for the key in the bucket list
         for kv in bucket_list:
-            # print (key_value)
+
             if kv[0] == key:
                 return kv[1]  # value
         return None
